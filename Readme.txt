@@ -1,0 +1,1 @@
+=> Projeyi kullanmadan önce src/services/request.js dosyasındaki baseUrl'yi kendi sisteminize uygun düzeltmeniz gerekmektedir. 
