@@ -1,22 +1,41 @@
- function request (url,data = false,method='GET',token='')
+ function request (url,data = false,method='GET')
 {
+    const token = localStorage.getItem('token') ?? '';
+    if(token === '')
+    {
+        console.log('boş token url',url)
+    }
     let baseURL = 'http://localhost:5189/api/'
     return new Promise( async(resolve,reject) => {
+
         const options = {
             method,
-            headers:{"Content-Type": "application/json",'Authorization': `Bearer ${token}`}
+            headers:
+            {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`}
             
-
         }
+        
         
         if(data && method ==='POST'){
             options.body = JSON.stringify(data);
+        }
+        let response = null;
+        try {
             
+         response = await fetch(baseURL +url,options);
+        } catch (error) {
+            console.log('response error',error)
+        } 
+        let result = null;
+        try {
+            
+            result = await response.json();
+        } catch (errt) {
+            console.log('result error',errt)
         }
         
-        const response = await fetch(baseURL +url,options);
-        
-        const result = await response.json();
         if(response.ok)
         {
             resolve(result);

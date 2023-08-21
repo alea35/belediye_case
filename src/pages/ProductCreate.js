@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 
 import './shared/forms.css'
 import { getAllCategories, getProductById, productCreate, productUpdate } from '../services';
@@ -128,7 +128,7 @@ useEffect(()=>
       const dtoObject = createObjectFromStates();
       if(!product)
       {      
-        productCreate(dtoObject,token)
+        productCreate(dtoObject)
         .then((res)=>{
           if(res.isOk)
             alertCreated();
@@ -137,7 +137,7 @@ useEffect(()=>
         }).catch((err)=>console.log('productCreate error',err));
       }
       else{
-        productUpdate(dtoObject,token)
+        productUpdate(dtoObject)
         .then((res)=>{
           if(res.isOk)
             alertUpdated()
@@ -185,4 +185,4 @@ useEffect(()=>
   )
 }
 
-export default ProductCreate
+export default memo(ProductCreate)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import ProductList from './ProductList'
 
 import Filter from '../components/Filter'
@@ -14,4 +14,4 @@ function Home() {
   )
 }
 
-export default Home
+export default memo(Home)

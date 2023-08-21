@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import './CategoryList.css'
 import { categoryDelete, getAllCategories } from '../services'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -72,4 +72,4 @@ function CategoryList() {
   )
 }
 
-export default CategoryList
+export default memo(CategoryList)

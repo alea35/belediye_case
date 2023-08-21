@@ -7,9 +7,9 @@ export const register = (data) => post( `Auth/Register`,data)
 
 export const getAllProducts=()=> get(`Product/GetAll`);
 
-export const productCreate =((data,token) => post(`Product/Create`,data,token))
+export const productCreate =((data) => post(`Product/Create`,data))
 
-export const productUpdate =((data,token) =>  post(`Product/Update`,data,token))
+export const productUpdate =((data) =>  post(`Product/Update`,data))
 
 export const getProductById = (id) => get(`Product/GetById?id=${id}`);
 
@@ -20,9 +20,9 @@ export const filterProducts = (sortOrder = 'default',category = 'all') => get(`P
 
 export const getAllCategories=()=> get(`Category/GetAll`);
 
-export const categoryCreate =((data,token) =>  post(`Category/Create`,data,token))
+export const categoryCreate =((data) =>  post(`Category/Create`,data))
 
-export const categoryUpdate =((data,token) => post(`Category/Update`,data,token))
+export const categoryUpdate =((data) => post(`Category/Update`,data))
 
 export const getCategoryById = (id) => get(`Category/GetById?id=${id}`);
 

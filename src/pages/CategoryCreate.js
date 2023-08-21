@@ -10,7 +10,7 @@ import { alertCreated, alertInfo, alertUpdated } from '../app/utils/alerts';
 function CategoryCreate() {
   const [name,setName] = useState("");
   const [description,setDescription] = useState("");
-  const {token} = useAuth();
+  
   const [category,setCategory] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
@@ -76,7 +76,7 @@ function CategoryCreate() {
     //create
     if(!category)
     {
-      categoryCreate(categoryDto,token)
+      categoryCreate(categoryDto)
       .then((res)=>
       {
         if(res.isOk)
@@ -88,7 +88,7 @@ function CategoryCreate() {
     }
     //edit
     else{
-      categoryUpdate(categoryDto,token)
+      categoryUpdate(categoryDto)
       .then((res)=>
       {
         if(res.isOk)

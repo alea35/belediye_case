@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import './Filter.css'
 import { Button } from 'react-bootstrap'
 import {  useNavigate } from 'react-router-dom'
@@ -15,9 +15,15 @@ function Filter() {
   const dispatch = useDispatch()
 
   useEffect(()=>{
+    try {
+      
+      
     getAllCategories()
     .then(res => setCategories(res))
-    .catch(err => console.log(err))
+    .catch(err => console.log('filter getAllCategories error => ',err))
+  } catch (error) {
+      console.log('catched error',error)
+  } 
   },[])
 
   const handleSubmit = (e)=>
@@ -53,4 +59,4 @@ function Filter() {
   ) 
 }
 
-export default Filter
+export default memo(Filter)

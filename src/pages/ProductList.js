@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import { getAllProducts } from '../services'
 import Product from '../components/Product'
 import { setProducts } from '../features/product/productSlice' 
 import { useDispatch ,useSelector} from 'react-redux'
 import './ProductList.css'
+
 
 
 function ProductList() {
@@ -47,4 +48,4 @@ function ProductList() {
 }
 
 
-export default ProductList
+export default memo(ProductList)

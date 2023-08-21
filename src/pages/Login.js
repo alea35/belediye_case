@@ -50,10 +50,11 @@ function Login() {
       {
         if(res.isOk)
         {
-
-          setUser(res.user);
           setToken(res.token);
-          navigate('/')
+          setUser(res.user);
+          setTimeout(function() {
+            navigate('/')
+        }, 1000); // Wait for 2 seconds
         }
         else{
           alertException(res.errors)
